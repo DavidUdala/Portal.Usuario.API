@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Portal.Usuario.API/Portal.Usuario.API.csproj" />
+  <Project Path="Portal.Usuario.Application/Portal.Usuario.Application.csproj" Id="20f78974-c52d-4166-87d9-b11534db3aba" />
+  <Project Path="Portal.Usuario.Core/Portal.Usuario.Core.csproj" Id="aaa5c98a-91df-46d0-b8a7-0bd0a9928940" />
+  <Project Path="Portal.Usuario.Infrastructure/Portal.Usuario.Infrastructure.csproj" Id="f991a916-56df-4781-ace1-1d3a57b88ee0" />
+</Solution>
