@@ -28,7 +28,6 @@ namespace Portal.Usuario.Application.Queries
                             .Take(request.PageSize)
                             .ToList();
 
-
                 return new RequestResult<PagedResult<List<UserOutput>>>(true, "Consulta realizada com sucesso!", new PagedResult<List<UserOutput>>(request.PageNumber, request.PageSize, totalRecords, data.Select(usr => (UserOutput)usr).ToList()));
             }
             catch (Exception ex)

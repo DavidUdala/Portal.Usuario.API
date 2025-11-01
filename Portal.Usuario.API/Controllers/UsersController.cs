@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Portal.Usuario.Application.InputModels;
 using Portal.Usuario.Application.OutputModels;
@@ -18,6 +19,7 @@ namespace Portal.Usuario.API.Controllers
 
         // GET: api/<UsersController>
         [HttpGet("getBy")]
+        [Authorize]
         public async Task<RequestResult<PagedResult<List<UserOutput>>>> Get([FromQuery] string term = "", int pageNumber = 1, int pageSize = 5)
         {
             var input = new GetUsersByInput(term, pageNumber, pageSize);

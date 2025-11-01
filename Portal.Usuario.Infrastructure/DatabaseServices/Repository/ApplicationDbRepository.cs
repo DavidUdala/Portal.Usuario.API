@@ -17,7 +17,10 @@ namespace Portal.Usuario.Infrastructure.DatabaseServices.Repository
         {
             return await _dbContext.Set<T>().Where(expression).ToListAsync();
         }
-
+        public async Task<T?> GetOne(Expression<Func<T, bool>> expression)
+        {
+            return await _dbContext.Set<T>().FirstOrDefaultAsync(expression);
+        }
         public async Task Create(T entity)
         {
             await _dbContext.Set<T>().AddAsync(entity);

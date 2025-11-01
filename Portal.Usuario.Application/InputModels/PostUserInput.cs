@@ -1,6 +1,9 @@
 ﻿using MediatR;
 using Portal.Usuario.Application.OutputModels;
+using Portal.Usuario.Application.Utils;
 using Portal.Usuario.Core.Entities;
+using System.Text;
+using System.Text.Unicode;
 
 namespace Portal.Usuario.Application.InputModels
 {
@@ -27,7 +30,7 @@ namespace Portal.Usuario.Application.InputModels
                 BirthDay = entity.BirthDay,
                 Email = entity.Email,
                 Name = entity.Name,
-                Password = entity.Password
+                Password = HashHelper.ToSha256(entity.Password)
             };
         }
 
