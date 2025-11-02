@@ -16,10 +16,10 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowAngularApp",
         policy =>
         {
-            policy.WithOrigins("http://localhost:4200") // origem permitida
+            policy.WithOrigins("http://localhost:4200", "http://localhost:4000")
                   .AllowCredentials()
-                  .AllowAnyHeader()                     // permite qualquer header
-                  .AllowAnyMethod();                    // GET, POST, PUT, DELETE etc.
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
         });
 });
 
@@ -72,11 +72,8 @@ builder.Services.AddScoped<IApplicationDbRepository<User>, ApplicationDbReposito
 var app = builder.Build();
 app.UseCors("AllowAngularApp");
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
