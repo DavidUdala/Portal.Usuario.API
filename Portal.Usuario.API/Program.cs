@@ -1,12 +1,14 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Portal.Usuario.Application.Handlers;
 using Portal.Usuario.Application.Queries;
 using Portal.Usuario.Core.Entities;
 using Portal.Usuario.Core.Interfaces;
 using Portal.Usuario.Infrastructure.DatabaseServices.Context;
 using Portal.Usuario.Infrastructure.DatabaseServices.Repository;
-using Microsoft.IdentityModel.Tokens;
+using Portal.Usuario.Infrastructure.DatabaseServices.Seeders;
+using System;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -70,6 +72,13 @@ builder.Services.AddScoped<IApplicationDbRepository<User>, ApplicationDbReposito
 
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    UserDbSeeder.Seed(dbContext);
+}
+
 app.UseCors("AllowAngularApp");
 // Configure the HTTP request pipeline.
 app.UseSwagger();
@@ -80,5 +89,13 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.Use(async (context, next) =>
+{
+    if (context.Request.Path == "/index.html" || context.Request.Path == "/")
+        context.Response.Redirect("/swagger/index.html");
+    else
+        await next();
+});
 
 app.Run();

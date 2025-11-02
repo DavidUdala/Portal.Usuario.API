@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Portal.Usuario.Application.OutputModels;
-using Portal.Usuario.Application.Utils;
+using Portal.Usuario.Core.Utils;
 using Portal.Usuario.Core.Entities;
 using System.Text;
 using System.Text.Unicode;

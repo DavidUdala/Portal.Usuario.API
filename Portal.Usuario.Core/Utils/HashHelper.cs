@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace Portal.Usuario.Application.Utils
+namespace Portal.Usuario.Core.Utils
 {
     public static class HashHelper
     {

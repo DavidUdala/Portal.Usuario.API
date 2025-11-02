@@ -1,12 +1,11 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.VisualBasic;
 using Portal.Usuario.Application.InputModels;
 using Portal.Usuario.Application.OutputModels;
-using Portal.Usuario.Application.Utils;
 using Portal.Usuario.Core.Entities;
 using Portal.Usuario.Core.Interfaces;
+using Portal.Usuario.Core.Utils;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
