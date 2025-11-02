@@ -17,7 +17,6 @@ namespace Portal.Usuario.API.Controllers
             _mediator = mediator;
         }
 
-        // GET: api/<UsersController>
         [HttpGet("getBy")]
         [Authorize]
         public async Task<RequestResult<PagedResult<List<UserOutput>>>> Get([FromQuery] string term = "", int pageNumber = 1, int pageSize = 5)
@@ -28,7 +27,6 @@ namespace Portal.Usuario.API.Controllers
             return result;
         }
 
-        // POST api/<UsersController>
         [HttpPost("create")]
         public async Task<RequestResult<bool>> Post([FromBody] PostUserInput input)
         {
