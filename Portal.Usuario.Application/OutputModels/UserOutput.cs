@@ -6,16 +6,16 @@ namespace Portal.Usuario.Application.OutputModels
     {
         public string Name { get; set; } 
         public string Email { get; set; }
-        public DateTime BirthDay { get; set; }
-        public DateTime DateCreated { get; set; }
+        public string BirthDay { get; set; }
+        public string DateCreated { get; set; }
 
         public static implicit operator UserOutput(User entity)
         {
             return new UserOutput
             {
-                BirthDay = entity.BirthDay,
+                BirthDay = entity.BirthDay.ToString("dd/MM/yyyy"),
                 Email = entity.Email,
-                DateCreated = entity.DateCreated,
+                DateCreated = entity.DateCreated.ToString("dd/MM/yyyy"),
                 Name = entity.Name
             };
         }

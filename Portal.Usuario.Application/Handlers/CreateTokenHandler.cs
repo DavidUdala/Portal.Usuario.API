@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.VisualBasic;
 using Portal.Usuario.Application.InputModels;
 using Portal.Usuario.Application.OutputModels;
+using Portal.Usuario.Application.Utils;
 using Portal.Usuario.Core.Entities;
 using Portal.Usuario.Core.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
@@ -25,7 +26,7 @@ namespace Portal.Usuario.Application.Handlers
 
         public async Task<RequestResult<string>> Handle(UserLoginInput input, CancellationToken cancellationToken)
         {
-            User? user = await _repository.GetOne(usr => usr.Email == input.Username && usr.Password == input.Password);
+            User? user = await _repository.GetOne(usr => usr.Email == input.Username && usr.Password == HashHelper.ToSha256(input.Password));
 
             if (user is null)
                 return await Task.FromResult(new RequestResult<string>(true, "Usuário ou senha inválidos"));

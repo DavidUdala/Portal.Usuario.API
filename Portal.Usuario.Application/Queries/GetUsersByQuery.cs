@@ -24,7 +24,7 @@ namespace Portal.Usuario.Application.Queries
                 var totalRecords = userList.Count();
 
                 var data = userList
-                            .Skip((request.PageNumber) - 1 * request.PageSize)
+                            .Skip((request.PageNumber - 1) * request.PageSize)
                             .Take(request.PageSize)
                             .ToList();
 

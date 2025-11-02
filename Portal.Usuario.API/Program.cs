@@ -11,6 +11,19 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularApp",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:4200") // origem permitida
+                  .AllowCredentials()
+                  .AllowAnyHeader()                     // permite qualquer header
+                  .AllowAnyMethod();                    // GET, POST, PUT, DELETE etc.
+        });
+});
+
+
 //JWT Config
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 var key = Encoding.UTF8.GetBytes(jwtSettings["Key"]!);
@@ -57,7 +70,7 @@ builder.Services.AddScoped<IApplicationDbRepository<User>, ApplicationDbReposito
 
 
 var app = builder.Build();
-
+app.UseCors("AllowAngularApp");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
