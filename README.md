@@ -25,16 +25,8 @@ Certifique-se de que você possui as seguintes ferramentas instaladas em seu amb
 
 ### Execução da API Web
 1. **Acessar a Aplicação**
-    - Abra o navegador e acesse `http://localhost:9080`.
+    - Abra o navegador e acesse `http://localhost:9080` para enxergar a documentação da API com swagger.
 
-## Crie seu usuário
-1. **Clique em "ainda não possui acesso? Crie sua conta agora"**
-<img width="1264" height="1269" alt="image" src="https://github.com/user-attachments/assets/ec361b0d-476e-4edc-b5ea-2baeb7f7125f" />
+    <img width="1244" height="1009" alt="image" src="https://github.com/user-attachments/assets/26180d9f-f78e-4c75-a3bd-71a248513e46" />
 
-2. **Preencha o formulário e em seguida clique em "Cadastra-se" **
-<img width="1239" height="1129" alt="image" src="https://github.com/user-attachments/assets/0a328c37-0778-4cf2-a976-28a7acb85578" />
 
-3. **Ao voltar para tela de login use o seu e-mail cadastrado e a senha**
-
-4. **Em seguida você verá que está logado visualizando a lista de usuários cadastrados**
-<img width="1257" height="916" alt="image" src="https://github.com/user-attachments/assets/e665557b-49b5-4af5-9eea-7632a9498e53" />
