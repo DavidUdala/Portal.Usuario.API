@@ -19,6 +19,10 @@ namespace Portal.Usuario.Application.Handlers
         {
             try
             {
+                var validation = await Validate(request);
+                if (!string.IsNullOrEmpty(validation))
+                    return new RequestResult<bool>(false, validation);
+
                 User user = request;
 
                 await _repository.Create(user);
@@ -30,6 +34,16 @@ namespace Portal.Usuario.Application.Handlers
             {
                 return new RequestResult<bool>(false, ex.Message);
             }
+        }
+
+        protected async Task<string> Validate(PostUserInput request)
+        {
+            var user = await _repository.GetOne(usr => usr.Email.ToUpper().Trim() == request.Email.Trim().ToUpper());
+
+            if (user is not null)
+                return "Email já cadastrado";
+
+            return "";
         }
     }
 }
