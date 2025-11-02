@@ -5,8 +5,8 @@ Este repositório contém a solução completa para o projeto do Teste Prático 
 ## Pré-requisitos
 Certifique-se de que você possui as seguintes ferramentas instaladas em seu ambiente:
 
-- [.NET 8]
-- [Visual Studio 2022 ou 2026]
+- [Docker](https://www.docker.com/)
+- [Git](https://git-scm.com/)
 
 ## Instruções para a API
 
@@ -28,5 +28,3 @@ Certifique-se de que você possui as seguintes ferramentas instaladas em seu amb
     - Abra o navegador e acesse `http://localhost:9080` para enxergar a documentação da API com swagger.
 
     <img width="1244" height="1009" alt="image" src="https://github.com/user-attachments/assets/26180d9f-f78e-4c75-a3bd-71a248513e46" />
-
-
