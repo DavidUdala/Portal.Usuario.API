@@ -15,7 +15,7 @@ namespace Portal.Usuario.Tests.Handlers
         public CreateUserHandlerTests()
         {
             _repositoryMock = new Mock<IApplicationDbRepository<User>>();
-            _handler = new CreateUserHandler(null!, _repositoryMock.Object); // O IMediator não é usado
+            _handler = new CreateUserHandler(null!, _repositoryMock.Object); 
         }
 
         [Fact]
