@@ -29,7 +29,7 @@ namespace Portal.Usuario.Application.Handlers
             User? user = await _repository.GetOne(usr => usr.Email == input.Username && usr.Password == HashHelper.ToSha256(input.Password));
 
             if (user is null)
-                return await Task.FromResult(new RequestResult<string>(true, "Usuário ou senha inválidos"));
+                return await Task.FromResult(new RequestResult<string>(false, "Usuário ou senha inválidos"));
 
             string token = await GenerateToken(user);
 
